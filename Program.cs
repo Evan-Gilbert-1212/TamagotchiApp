@@ -119,7 +119,7 @@ namespace TamagotchiApp
 
       var patchInput = new StringContent("");
 
-      var response = await client.PatchAsync($"https://tamagotchi-api.herokuapp.com//api/pet/play/{petID}", patchInput);
+      var response = await client.PatchAsync($"https://tamagotchi-api.herokuapp.com/api/pet/play/{petID}", patchInput);
 
       var petPlayedWith = JsonSerializer.Deserialize<Pet>(await response.Content.ReadAsStringAsync());
 
