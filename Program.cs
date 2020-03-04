@@ -76,7 +76,7 @@ namespace TamagotchiApp
 
       var client = new HttpClient();
 
-      var response = await client.GetAsync("https://localhost:5001/api/pet/alive");
+      var response = await client.GetAsync("https://tamagotchi-api.herokuapp.com/api/pet/alive");
 
       var petList = JsonSerializer.Deserialize<List<Pet>>(await response.Content.ReadAsStringAsync());
 
@@ -119,7 +119,7 @@ namespace TamagotchiApp
 
       var patchInput = new StringContent("");
 
-      var response = await client.PatchAsync($"https://localhost:5001/api/pet/play/{petID}", patchInput);
+      var response = await client.PatchAsync($"https://tamagotchi-api.herokuapp.com//api/pet/play/{petID}", patchInput);
 
       var petPlayedWith = JsonSerializer.Deserialize<Pet>(await response.Content.ReadAsStringAsync());
 
@@ -147,7 +147,7 @@ namespace TamagotchiApp
 
       var patchInput = new StringContent("");
 
-      var response = await client.PatchAsync($"https://localhost:5001/api/pet/feed/{petID}", patchInput);
+      var response = await client.PatchAsync($"https://tamagotchi-api.herokuapp.com/api/pet/feed/{petID}", patchInput);
 
       var petFed = JsonSerializer.Deserialize<Pet>(await response.Content.ReadAsStringAsync());
 
@@ -175,7 +175,7 @@ namespace TamagotchiApp
 
       var patchInput = new StringContent("");
 
-      var response = await client.PatchAsync($"https://localhost:5001/api/pet/scold/{petID}", patchInput);
+      var response = await client.PatchAsync($"https://tamagotchi-api.herokuapp.com/api/pet/scold/{petID}", patchInput);
 
       var petScolded = JsonSerializer.Deserialize<Pet>(await response.Content.ReadAsStringAsync());
 
@@ -204,7 +204,7 @@ namespace TamagotchiApp
 
       var postInput = new StringContent(jsonPet, Encoding.UTF8, "application/json");
 
-      var response = await client.PostAsync($"https://localhost:5001/api/pet/", postInput);
+      var response = await client.PostAsync($"https://tamagotchi-api.herokuapp.com/api/pet/", postInput);
 
       var petCreated = JsonSerializer.Deserialize<Pet>(await response.Content.ReadAsStringAsync());
 
@@ -229,7 +229,7 @@ namespace TamagotchiApp
 
       var client = new HttpClient();
 
-      var response = await client.DeleteAsync($"https://localhost:5001/api/pet/{petID}");
+      var response = await client.DeleteAsync($"https://tamagotchi-api.herokuapp.com/api/pet/{petID}");
 
       Console.WriteLine($"Pet removed successfully!");
       Console.WriteLine();
